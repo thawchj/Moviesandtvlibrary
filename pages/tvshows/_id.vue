@@ -117,7 +117,7 @@ export default {
       const dobj = new Date(dsting)
       return dobj.toLocaleDateString()
     },
-    addToList() {
+    async addToList() {
       const item = {
         idtvshow: this.tvshow.id,
         nametvshow: this.tvshow.name,
@@ -126,12 +126,14 @@ export default {
       }
 
       // 1. ดึงค่า cookie แล้วเช็คว่า มีตัวแปร  tvshow-selected ยัง
-      const tvshowSelected = this.getCookie('tvshow-selected')
+      const tvshowSelected = await this.getCookie('tvshow-selected')
       if (tvshowSelected === '') {
         // 1.1ถ้ายังไม่มี tvshow-selected ให้เพิ่มเข้าไป
         const itemJson = JSON.stringify([item])
-        this.setCookie('tvshow-selected', itemJson, 5) // เก็บข้อมูลใน cookie ชื่อ tvshow-selected
+        await this.setCookie('tvshow-selected', itemJson, 5) // เก็บข้อมูลใน cookie ชื่อ tvshow-selected
+        this.makeToast('secondary', item.nametvshow)
         return
+        
       }
 
       // 1.2 ถ้ามี tvshow-selected แล้วให้เช็คว่า มี หนังที่เลือกอยู่ใน tvshow-selected แล้วยัง
@@ -145,8 +147,16 @@ export default {
       if (checkhavetvshowselected === false) {
         tvshowSelectedArr.push(item)
         const tvshowSelectedArrJson = JSON.stringify(tvshowSelectedArr)
-        this.setCookie('tvshow-selected', tvshowSelectedArrJson, 5)
+        await this.setCookie('tvshow-selected', tvshowSelectedArrJson, 5)
       }
+      this.makeToast('secondary', item.nametvshow)
+    },
+    makeToast(variant = null, name) {
+      this.$bvToast.toast(name, {
+        title: 'Add to list Success',
+        variant,
+        solid: true,
+      })
     },
     setCookie(cname, cvalue, exdays) {
       const d = new Date()

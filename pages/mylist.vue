@@ -83,24 +83,26 @@ export default {
       tvshowselected: [],
     }
   },
-  mounted() {
-    if (this.getCookie('movie-selected') !== '') {
-      this.movieselected = JSON.parse(this.getCookie('movie-selected'))
+  async mounted() {
+    const checkmovie = await this.getCookie('movie-selected')
+    const checktvshow = await this.getCookie('tvshow-selected')
+    if (checkmovie !== '') {
+      this.movieselected = await JSON.parse(this.getCookie('movie-selected'))
     }
-    if (this.getCookie('tvshow-selected') !== '') {
-      this.tvshowselected = JSON.parse(this.getCookie('tvshow-selected'))
+    if (checktvshow !== '') {
+      this.tvshowselected = await JSON.parse(this.getCookie('tvshow-selected'))
     }
   },
   methods: {
-    clear() {
-      const cleardatatvshow = this.getCookie('tvshow-selected')
-      const cleardatamovie = this.getCookie('movie-selected')
+    async clear() {
+      const cleardatatvshow = await this.getCookie('tvshow-selected')
+      const cleardatamovie = await this.getCookie('movie-selected')
       if (cleardatatvshow !== '') {
-        this.setCookie('tvshow-selected', '', 5)
+        await this.setCookie('tvshow-selected', '', 5)
         this.movieselected = []
       }
       if (cleardatamovie !== '') {
-        this.setCookie('movie-selected', '', 5)
+        await this.setCookie('movie-selected', '', 5)
         this.tvshowselected = []
       }
     },
