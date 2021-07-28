@@ -5,17 +5,11 @@
       <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
         <b-collapse id="nav-collapse" is-nav>
           <b-navbar-nav>
-            <nuxt-link class="link" to="/movies">
-              <b-nav-item class="headermovies" >Movies</b-nav-item>
-            </nuxt-link >
-            <nuxt-link class="link" to="/tvshows">
-              <b-nav-item >TVShows</b-nav-item>
-            </nuxt-link>
+            <b-nav-item to="/movies">Movies</b-nav-item>
+            <b-nav-item to="/tvshows">TVShows</b-nav-item>
           </b-navbar-nav>
           <b-navbar-nav class="ml-auto mr-3">
-            <nuxt-link class="link" to="/mylist">
-              <b-nav-item >My List</b-nav-item>
-            </nuxt-link>
+              <b-nav-item to="/mylist">My List</b-nav-item>
           </b-navbar-nav>
         </b-collapse>
     </b-navbar>

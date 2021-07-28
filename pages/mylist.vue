@@ -97,9 +97,11 @@ export default {
       const cleardatamovie = this.getCookie('movie-selected')
       if (cleardatatvshow !== '') {
         this.setCookie('tvshow-selected', '', 5)
+        this.movieselected = []
       }
       if (cleardatamovie !== '') {
         this.setCookie('movie-selected', '', 5)
+        this.tvshowselected = []
       }
     },
     setCookie(cname, cvalue, exdays) {
