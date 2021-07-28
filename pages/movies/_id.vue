@@ -67,6 +67,18 @@ export default {
 
     }
   },
+  head() {
+    return {
+      title: this.movie ? this.movie.title : 'movies',
+      meta: [
+        {
+          hid: 'movies',
+          name: 'movies',
+          content: 'movies',
+        },
+      ],
+    }
+  },
   methods: {
     addToList(){
         const item = {

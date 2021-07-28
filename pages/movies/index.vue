@@ -56,9 +56,11 @@
       </div>
     </div>
     <div class="text-center">
-      <button type="button" class="buttonload" @click="loadmore()">LOAD MORE</button>
+      <button type="button" class="buttonload" @click="loadmore()">
+        LOAD MORE
+      </button>
     </div>
-    
+
     <footerlib></footerlib>
   </div>
 </template>
@@ -86,6 +88,18 @@ export default {
       count: 2,
     }
   },
+  head() {
+    return {
+      title: 'movies',
+      meta: [
+        {
+          hid: 'movies',
+          name: 'movies',
+          content: 'movies',
+        },
+      ],
+    }
+  },
   methods: {
     onSlideStart(slide) {
       this.sliding = true
@@ -97,12 +111,12 @@ export default {
       const res = await this.$axios.$get(
         `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.API_KEY}&query=a&sort_by=popularity.desc&vote_count.gte=1000&page=${this.count}`
       )
-      if(res && res.results && res.results.length > 0){
-          this.moviesArr = [...this.moviesArr, ...res.results]
-          this.count++
+      if (res && res.results && res.results.length > 0) {
+        this.moviesArr = [...this.moviesArr, ...res.results]
+        this.count++
       }
-    }
-  }
+    },
+  },
 }
 </script>
 
@@ -142,7 +156,7 @@ export default {
   margin: 40px 0px 20px 20px;
   font-weight: bold;
 }
-.buttonload{
+.buttonload {
   padding: 4px 80px;
   border: 2px solid white;
   background-color: Transparent;
@@ -151,7 +165,7 @@ export default {
   font-weight: bolder;
   margin-top: 20px;
 }
-.buttonload:hover{
+.buttonload:hover {
   color: rgb(190, 190, 190);
   border: 2px solid rgb(190, 190, 190);
 }
