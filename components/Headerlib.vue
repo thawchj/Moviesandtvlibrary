@@ -6,15 +6,15 @@
         <b-collapse id="nav-collapse" is-nav>
           <b-navbar-nav>
             <nuxt-link class="link" to="/movies">
-              <b-nav-item class="headermovies" href="/movies">Movies</b-nav-item>
+              <b-nav-item class="headermovies" >Movies</b-nav-item>
             </nuxt-link >
             <nuxt-link class="link" to="/tvshows">
-              <b-nav-item href="/tvshows">TVShows</b-nav-item>
+              <b-nav-item >TVShows</b-nav-item>
             </nuxt-link>
           </b-navbar-nav>
           <b-navbar-nav class="ml-auto mr-3">
             <nuxt-link class="link" to="/mylist">
-              <b-nav-item href="/mylist">My List</b-nav-item>
+              <b-nav-item >My List</b-nav-item>
             </nuxt-link>
           </b-navbar-nav>
         </b-collapse>
