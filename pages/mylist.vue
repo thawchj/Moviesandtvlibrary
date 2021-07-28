@@ -95,16 +95,10 @@ export default {
   },
   methods: {
     async clear() {
-      const cleardatatvshow = await this.getCookie('tvshow-selected')
-      const cleardatamovie = await this.getCookie('movie-selected')
-      if (cleardatatvshow !== '') {
-        await this.setCookie('tvshow-selected', '', 5)
-        this.movieselected = []
-      }
-      if (cleardatamovie !== '') {
-        await this.setCookie('movie-selected', '', 5)
-        this.tvshowselected = []
-      }
+      await this.setCookie('tvshow-selected', '', 5)
+      this.movieselected = []
+      await this.setCookie('movie-selected', '', 5)
+      this.tvshowselected = []
     },
     setCookie(cname, cvalue, exdays) {
       const d = new Date()
