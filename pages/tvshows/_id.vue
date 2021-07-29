@@ -43,14 +43,13 @@
               ><span class="ml-2">ADD LIST</span>
             </button>
           </div>
-          <div class="genres-tvshows mb-2">
-            <b-icon icon="film" class="text-genres mr-2"></b-icon>
+          <div class="row ">
             <div v-for="m in tvshow.genres" :key="m.id">
-              <div class="text-genres mr-2">{{ m.name }}</div>
+              <div class="text-genres pl-3">{{ m.name }}</div>
             </div>
           </div>
 
-          <p class="text-overview">{{ tvshow.overview }}</p>
+          <p class="text-overview mt-2">{{ tvshow.overview }}</p>
           <div class="my-4 embed-responsive embed-responsive-16by9">
             <iframe
               v-if="
@@ -113,7 +112,7 @@ export default {
     }
   },
   methods: {
-    getDate(dsting){
+    getDate(dsting) {
       const dobj = new Date(dsting)
       return dobj.toLocaleDateString()
     },
@@ -133,7 +132,6 @@ export default {
         await this.setCookie('tvshow-selected', itemJson, 5) // เก็บข้อมูลใน cookie ชื่อ tvshow-selected
         this.makeToast('secondary', item.nametvshow)
         return
-        
       }
 
       // 1.2 ถ้ามี tvshow-selected แล้วให้เช็คว่า มี หนังที่เลือกอยู่ใน tvshow-selected แล้วยัง
@@ -202,11 +200,7 @@ export default {
   background-repeat: no-repeat;
   position: relative;
 }
-.genres-tvshows {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
+
 .text-time {
   font-size: 20px;
   line-height: 250%;

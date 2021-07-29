@@ -39,14 +39,13 @@
               ><span class="ml-2">ADD LIST</span>
             </button>
           </div>
-          <div class="genres-movie mb-2">
-            <b-icon icon="film" class="text-genres mr-2"></b-icon>
+          <div class="row">
             <div v-for="f in movie.genres" :key="f.id">
-              <div class="text-genres mr-2">{{ f.name }}</div>
+              <div class="text-genres pl-3">{{ f.name }}</div>
             </div>
           </div>
 
-          <p class="text-overview">{{ movie.overview }}</p>
+          <p class="text-overview mt-2">{{ movie.overview }}</p>
 
           <div class="my-4 embed-responsive embed-responsive-16by9">
             <iframe
@@ -196,11 +195,7 @@ export default {
   background-repeat: no-repeat;
   position: relative;
 }
-.genres-movie {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
+
 .text-time {
   font-size: 20px;
   line-height: 250%;
