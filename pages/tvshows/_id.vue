@@ -40,7 +40,7 @@
             >
             <button class="add-button" @click="addToList">
               <b-icon scale="1.5" icon="plus-circle" class="mr-2"></b-icon
-              ><span class="ml-2">ADD LIST</span>
+              ><span class="ml-2">ADD TO LIST</span>
             </button>
           </div>
           <div class="row ">
@@ -209,14 +209,17 @@ export default {
   font-size: 20px;
 }
 .add-button {
-  font-size: 22px;
+  font-size: 20px;
   margin: 0px 5px 0px 5px;
-  background-color: rgba(0, 0, 0, 0);
-  border: none;
+  background-color: rgba(54, 54, 54, 0.5);
+  border: 2px solid white;
+  padding: 8px 10px;
   color: white;
+  border-radius: 2px;
 }
-.add-button:hover {
+.add-button:hover{
   color: rgb(190, 190, 190);
+  border: 2px solid rgb(190, 190, 190);
 }
 
 .info-tvshows {
