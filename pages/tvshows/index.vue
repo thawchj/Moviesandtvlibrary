@@ -131,13 +131,13 @@ export default {
   font-weight: bold;
 }
 .carousel-button {
-  font-size: 1.3vw;
+  font-size: 2vh;
   background: none;
   cursor: pointer;
   border: 0.2vw solid white;
   color: white;
   border-radius: 0.3vw;
-  padding: 0.5vw 1.2vw 0.5vw 1.2vw;
+  padding: 0.5vh 1.2vh 0.5vh 1.2vh;
   font-weight: bold;
 }
 .carousel-button:hover {
